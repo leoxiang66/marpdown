@@ -5,8 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
+**.md**
 
 # Distribution / packaging
+.idea
+**pypi**
 .Python
 build/
 develop-eggs/
