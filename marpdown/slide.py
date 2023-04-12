@@ -1,6 +1,6 @@
 
 class BaseSlide:
-    def __init__(self,content:str='',backgroundImage: str = None, ):
+    def __init__(self,*,content:str='',backgroundImage: str = None, ):
         self.content = content
         self.bgimage = backgroundImage
 
@@ -15,7 +15,7 @@ class TOCSlide(BaseSlide):
             tmp = [f'''### {i + 1}. {t}''' for i, t in enumerate(toc)]
             tmp[focus] = f'''### <div class ="highlight-wrapper"><div class="highlight-container"><div class="highlight"> {focus+1}. {toc[focus]}</div></div></div>'''
             content += '\n'.join(tmp)
-        super().__init__(content, backgroundImage)
+        super().__init__(content=content, backgroundImage=backgroundImage)
 
 class TimelineSlide(BaseSlide):
     def __init__(self, title:str,timelines: list[tuple],backgroundImage: str = None,):
@@ -31,4 +31,4 @@ class TimelineSlide(BaseSlide):
                         </div></li>'''
         content += '</ul>'
 
-        super().__init__(content, backgroundImage)
+        super().__init__(content=content, backgroundImage=backgroundImage)

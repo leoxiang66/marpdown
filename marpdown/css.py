@@ -65,7 +65,8 @@ TIMELINE = '''.timeline {
   padding-left: 60px;
 }'''
 
-TOC = '''.highlight-wrapper {
+TOC = '''
+.highlight-wrapper {
     margin-bottom: 1.25em; /* 添加底部边距，可根据需要调整 */
   }
 
@@ -75,7 +76,6 @@ TOC = '''.highlight-wrapper {
     right: 0;
     background-color: #0065bd; /* 设置背景颜色为蓝色 */
     padding-left: 3.17em; /* 添加左边距，可根据需要调整 */
-    padding-top: 0.2em; /* 添加左边距，可根据需要调整 */
     padding-bottom: 0.2em; /* 添加左边距，可根据需要调整 */
     display: flex; /* 设置为弹性布局 */
     align-items: center; /* 垂直居中 */
@@ -85,7 +85,8 @@ TOC = '''.highlight-wrapper {
   .highlight {
     color: #ffffff; /* 设置字体颜色为白色 */
     margin: 0; /* 移除默认的margin */
-  }'''
+  }
+'''
 
 def load_css():
     tmp = [BASE,TOC,TIMELINE]

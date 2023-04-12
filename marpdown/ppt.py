@@ -22,11 +22,11 @@ class PPT:
 
 
     def __setup__(self):
-        self.writer.append(f'''---\nmarp: true\nfooter: {self.footer}\npaginate: {self.paginate}''')
+        self.writer.append(f'''---\nmarp: true\nfooter: "{self.footer}"\npaginate: {self.paginate}''')
         if self._class is not None:
             self.writer.append(f"_class: {self._class}")
         if self.backgroundImage is not None:
-            self.writer.append(f"backgroundImage: {self.backgroundImage}")
+            self.writer.append(f"backgroundImage: url('{self.backgroundImage}')")
         self.__start_new_slide__()
         self.writer.append('<style>')
         self.writer.append(load_css())
@@ -36,16 +36,20 @@ class PPT:
         self.writer.clear()
         self.__setup__()
         s = self.slides[0]
-        if s.bgimage is not None:
-            self.writer.append(f'![bg]({s.bgimage})')
+        self.__build_bgimage__(s)
         self.writer.append(s.content)
 
         for s in self.slides[1:]:
             self.__start_new_slide__()
-            if s.bgimage is not None:
-                self.writer.append(f'![bg]({s.bgimage})')
+            self.__build_bgimage__(s)
             self.writer.append(s.content)
         return self.writer.getValue()
+
+    def __build_bgimage__(self, s):
+        if s.bgimage is not None:
+            self.writer.append(f'![bg]({s.bgimage})')
+        else:
+            self.writer.append(f'![bg]({self.backgroundImage})')
 
     def store(self,path:str, overwrite = True):
         self.build()
