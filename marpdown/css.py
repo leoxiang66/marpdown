@@ -88,6 +88,43 @@ TOC = '''
   }
 '''
 
+BOXLINE = '''
+.boxline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+
+.boxline-item {
+  position: relative;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.boxline-marker {
+  position: absolute;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background: rgb(48, 191, 248);
+  border-radius: 4px;
+}
+
+.boxline-content {
+  padding-left: 70px;
+}
+
+.boxline-content h2 {
+  color: black !important;
+}
+
+
+'''
+
 def load_css():
-    tmp = [BASE,TOC,TIMELINE]
+    tmp = [BASE,TOC,TIMELINE, BOXLINE]
     return '\n'.join(tmp)

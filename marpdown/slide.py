@@ -1,8 +1,10 @@
+from .writer import Writer
 
 class BaseSlide:
     def __init__(self,*,content:str='',backgroundImage: str = None, ):
         self.content = content
         self.bgimage = backgroundImage
+
 
 class TOCSlide(BaseSlide):
     def __init__(self, title: str, toc: list[str],focus = -1,backgroundImage: str = None):
@@ -32,3 +34,17 @@ class TimelineSlide(BaseSlide):
         content += '</ul>'
 
         super().__init__(content=content, backgroundImage=backgroundImage)
+
+class BoxlineSlide(BaseSlide):
+    def __init__(self, *, title: str,boxlines:list[str] ,backgroundImage: str = None):
+        self.__writer__ = Writer()
+        self.__writer__.append(f"# {title}")
+        self.__writer__.append('<ul class="boxline">')
+
+        for i,box in enumerate(boxlines):
+            self.__writer__.append(f'''<li class="boxline-item">
+    <div class="boxline-marker">{i+1}</div>
+    <div class="boxline-content"><h2>{box}</h2></div>
+  </li>''')
+        self.__writer__.append('</ul>')
+        super().__init__(content=self.__writer__.getValue(), backgroundImage=backgroundImage)

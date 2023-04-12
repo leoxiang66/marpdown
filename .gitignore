@@ -7,7 +7,7 @@ __pycache__/
 images/
 *.so
 **.md**
-
+**test**
 # Distribution / packaging
 .idea
 **pypi**
