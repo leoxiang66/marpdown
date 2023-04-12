@@ -121,10 +121,33 @@ BOXLINE = '''
 .boxline-content h2 {
   color: black !important;
 }
-
-
 '''
 
+CARD = '''.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: #cceeff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 30px; /* 上下边距为 20px，左右边距为 10px */
+  display: inline-block;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 0;
+}'''
+
+
 def load_css():
-    tmp = [BASE,TOC,TIMELINE, BOXLINE]
+    tmp = [BASE,TOC,TIMELINE, BOXLINE,CARD]
     return '\n'.join(tmp)

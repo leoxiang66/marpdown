@@ -3,5 +3,7 @@ from .slide import (
 BaseSlide,
 TOCSlide,
 TimelineSlide,
-BoxlineSlide
+BoxlineSlide,
+CardSlide,
+ThanksSlide
 )

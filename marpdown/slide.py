@@ -1,4 +1,5 @@
 from .writer import Writer
+from . import  utils
 
 class BaseSlide:
     def __init__(self,*,content:str='',backgroundImage: str = None, ):
@@ -48,3 +49,25 @@ class BoxlineSlide(BaseSlide):
   </li>''')
         self.__writer__.append('</ul>')
         super().__init__(content=self.__writer__.getValue(), backgroundImage=backgroundImage)
+
+class CardSlide(BaseSlide):
+    def __init__(self, *, title: str,cards: list[tuple[str,list[str]]] ,backgroundImage: str = None):
+        self.__writer__ = Writer()
+        self.__writer__.append(f"# {title}")
+        self.__writer__.append('<div class="card-container">')
+        for card in cards:
+            name,bulletpoints = card
+            self.__writer__.append(f'''<div class="card">
+    <h2>{name}</h2>
+    <p>
+      {utils.list_to_html_ul(bulletpoints)}
+    </p>
+  </div>''')
+        self.__writer__.append('</div>')
+        super().__init__(content=self.__writer__.getValue(), backgroundImage=backgroundImage)
+
+class ThanksSlide(BaseSlide):
+    def __init__(self, backgroundImage:str = None):
+        super().__init__(content='''<div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;padding-left=200px">
+  <h1 style="margin: 0 auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks for Attention! Any Questions?</h1>
+</div>''', backgroundImage=backgroundImage)
