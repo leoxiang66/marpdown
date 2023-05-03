@@ -55,7 +55,7 @@ class CardSlide(BaseSlide):
         self.__writer__ = Writer()
         self.__writer__.append(f"# {title}")
         self.__writer__.append(text)
-        self.__writer__.append('<div class="card-container">')
+        self.__writer__.append(' <div class="card-container">')
         for card in cards:
             name,bulletpoints = card
             self.__writer__.append(f'''<div class="card">

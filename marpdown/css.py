@@ -126,6 +126,9 @@ BOXLINE = '''
 CARD = '''.card-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
 }
 
 .card {
