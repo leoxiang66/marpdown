@@ -53,4 +53,17 @@ In the HR domain, QA chatbots are designed to assist employees by answering thei
                   'Leverage advancements in NLP for improved accuracy and user experience',
                   'Automatically understand user intents and find answers in context','Can handle a wider range of questions, including complex and ambiguous queries','More scalable and cost-effective solution for handling high volume of HR inquiries'])                                                                                                                                                                               ]))
 
+gr_final.addSlides(BaseSlide(content='''
+# Introduction
+
+## Generative QA: An example
+
+
+<center>
+<img src = "./gqa.png" width = 80%>
+</center>
+
+
+'''))
+
 gr_final.store('tmp.md')
