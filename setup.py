@@ -9,7 +9,7 @@ requirements = [
 
 setup(
     name="marpdown",
-    version="0.3.0",
+    version="0.4.0",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of RL algorithms",
