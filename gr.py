@@ -60,10 +60,115 @@ gr_final.addSlides(BaseSlide(content='''
 
 
 <center>
-<img src = "./gqa.png" width = 80%>
+<img src = "./gqa.png" width = 65%>
 </center>
 
 
 '''))
+
+gr_final.addSlides(BoxlineSlide(title='''Research Questions''',
+                    boxlines=[
+                        "How to effectively address the issue of lengthy input (context) in generative QA systems?",
+                        "Which analytical scores would be ideal to evaluate the performance of the models?",
+                        "How to accurately assess the performance of generative QA models in real-world scenarios?"
+                        
+                        ]),
+                   
+                   )
+
+# Methodlogy
+gr_final.addSlides(TOCSlide(title="Outline",toc=TOC,focus=2))
+gr_final.addSlides(BaseSlide(content='''
+# Methodology - Datasets
+
+
+**SAP SE internally prepared two datasets:**
+
+## Dataset 1
+
+![](https://i.imgur.com/EkRnz3l.png)
+
+- Contains (question, context, answer) tuples
+- The questions are very standardized and highly structured
+
+
+
+---
+
+# Methodology - Datasets
+
+**SAP SE internally prepared two datasets:**
+
+## Dataset 2
+
+![](https://i.imgur.com/QeCKt6O.png)
+
+- Contains (question, context, answer) tuples
+- The questions are from real users (improved randomness)
+- The contexts and answers might be wrong and the correct ones are annotated by domain experts
+
+
+
+
+                             '''))
+gr_final.addSlides(BaseSlide(content='''
+                             
+# Methodology - RQ1
+
+### How to effectively address the issue of lengthy input (context) in generative QA systems?
+
+
+---
+
+# Methodology - RQ1
+
+### How to effectively address the issue of lengthy input (context) in generative QA systems?
+
+#### We investigate the use of <font color = "red">efficient Transformers</font>
+
+                             '''))
+
+
+gr_final.addSlides(CardSlide(title= '''Methodology - RQ1''',text='''
+
+### How to effectively address the issue of lengthy input (context) in generative QA systems?
+           
+
+#### We investigate the use of <font color = "red">efficient Transformers</font>
+
+
+
+''', cards=[('Efficient Transformers',[
+    'variant of Transformer models that aim to improve limitations of traditional Transformer models',
+    'Enhanced computational and memory efficiency for handling lengthy inputs',
+    'Examples: LongT5'
+    ])]))
+
+
+gr_final.addSlides(CardSlide(title='''Methodology - RQ1''',text='''
+                   
+
+
+#### Due to limited training resources, in this project we choose **LongT5** model and **T5** model for experiments.
+
+                   ''',cards=[
+                       ('''LongT5''', ['1'])
+                       
+                       
+                   ]))
+
+
+gr_final.addSlides(BaseSlide(content='''
+
+# Methodology - RQ2
+
+
+
+### Which analytical scores would be ideal to evaluate the performance of the models?
+
+
+
+'''))
+
 
 gr_final.store('tmp.md')
