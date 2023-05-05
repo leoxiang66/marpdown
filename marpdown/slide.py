@@ -51,8 +51,38 @@ class BoxlineSlide(BaseSlide):
         super().__init__(content=self.__writer__.getValue(), backgroundImage=backgroundImage)
 
 class CardSlide(BaseSlide):
-    def __init__(self, *, title: str,text:str, cards: list[tuple[str,list[str]]] ,backgroundImage: str = None):
+    def __init__(self, *, title: str,text:str, cards: list[tuple[str,list[str]]], card_width:int = 450 ,backgroundImage: str = None):
         self.__writer__ = Writer()
+        CARD = f'''<style>
+        .card-container {{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+}}
+
+.card {{
+  background-color: #cceeff;
+  border-radius: 5px;
+  padding: 20px;
+  width: {card_width}px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 30px; /* 上下边距为 20px，左右边距为 10px */
+  display: inline-block;
+}}
+
+.card h2 {{
+  margin-top: 0;
+  margin-bottom: 10px;
+}}
+
+.card p {{
+  margin: 0;
+}}</style>
+        '''
+
+        self.__writer__.append(CARD)
         self.__writer__.append(f"# {title}")
         self.__writer__.append(text)
         self.__writer__.append(' <div class="card-container">')

@@ -1,4 +1,26 @@
-BASE = '''footer {
+BASE = '''
+
+
+strong {
+    color: #000000;
+    font-weight: bold;
+}
+
+.tables-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+
+
+b {
+    color: #000000;
+    font-weight: bold;
+
+}
+
+footer {
     font-family: 'Arial', sans-serif; /* 设置字体 */
     font-size: 14px; /* 设置字体大小 */
     /* font-weight: bold; 设置字体粗细 */
@@ -123,34 +145,8 @@ BOXLINE = '''
 }
 '''
 
-CARD = '''.card-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px;
-  width: 100%;
-}
-
-.card {
-  background-color: #cceeff;
-  border-radius: 5px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px 30px; /* 上下边距为 20px，左右边距为 10px */
-  display: inline-block;
-}
-
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.card p {
-  margin: 0;
-}'''
 
 
 def load_css():
-    tmp = [BASE,TOC,TIMELINE, BOXLINE,CARD]
+    tmp = [BASE,TOC,TIMELINE, BOXLINE]
     return '\n'.join(tmp)
