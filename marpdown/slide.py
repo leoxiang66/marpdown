@@ -51,7 +51,10 @@ class BoxlineSlide(BaseSlide):
         super().__init__(content=self.__writer__.getValue(), backgroundImage=backgroundImage)
 
 class CardSlide(BaseSlide):
-    def __init__(self, *, title: str,text:str, cards: list[tuple[str,list[str]]], card_width:int = 450 ,backgroundImage: str = None):
+  COUNT = 0
+  
+  def __init__(self, *, title: str,text:str, cards: list[tuple[str,list[str]]], card_width:int = 450 ,backgroundImage: str = None):
+        self.__class__.COUNT += 1
         self.__writer__ = Writer()
         CARD = f'''<style>
         .card-container {{
@@ -62,7 +65,7 @@ class CardSlide(BaseSlide):
   width: 100%;
 }}
 
-.card {{
+.card{self.COUNT} {{
   background-color: #cceeff;
   border-radius: 5px;
   padding: 20px;
@@ -72,12 +75,12 @@ class CardSlide(BaseSlide):
   display: inline-block;
 }}
 
-.card h2 {{
+.card{self.COUNT} h2 {{
   margin-top: 0;
   margin-bottom: 10px;
 }}
 
-.card p {{
+.card{self.COUNT} p {{
   margin: 0;
 }}</style>
         '''
@@ -88,7 +91,7 @@ class CardSlide(BaseSlide):
         self.__writer__.append(' <div class="card-container">')
         for card in cards:
             name,bulletpoints = card
-            self.__writer__.append(f'''<div class="card">
+            self.__writer__.append(f'''<div class="card{self.COUNT}">
     <h2>{name}</h2>
     <p>
       {utils.list_to_html_ul(bulletpoints)}
